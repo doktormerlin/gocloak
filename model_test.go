@@ -5,7 +5,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/Nerzal/gocloak/v12"
+	"github.com/Nerzal/gocloak/v13"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -335,9 +335,10 @@ func TestStringerOmitEmpty(t *testing.T) {
 		&gocloak.GetClientsParams{},
 		&gocloak.RequestingPartyTokenOptions{},
 		&gocloak.RequestingPartyPermission{},
+		&gocloak.GetClientUserSessionsParams{},
 	}
 
 	for _, custom := range customs {
-		assert.Equal(t, "{}", custom.(Stringable).String())
+		assert.Equal(t, "{}", custom.String())
 	}
 }
